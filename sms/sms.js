@@ -1,4 +1,7 @@
 const web = require("../credentiials/credential");
+const axios = require('axios');
+
+const request = require("request");
 
 // Set your app credentials
 const credentials = {
@@ -30,4 +33,32 @@ const sms = AfricasTalking.SMS;
 }
 
 
-module.exports = sendMessage;
+ 
+
+
+ async function bongoliveSendSms(){
+     const bongolive_key = "";
+    console.log("in option fuc")
+// Make a request for a user with a given ID
+axios.get('http://www.bongolive.co.tz/api/sendSMS.php?sendername=255620419226&username=kijadanford&password=buni@2020&apikey='+bongolive_key + '&destnum=255620419226&message=najaribisha&senddate='  )
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+       
+        
+        
+       
+}
+
+
+
+
+module.exports = {sendMessage,bongoliveSendSms};
